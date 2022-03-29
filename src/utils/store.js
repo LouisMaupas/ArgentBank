@@ -1,10 +1,10 @@
-// import { configureStore } from '@reduxjs/toolkit';
+import { configureStore } from '@reduxjs/toolkit';
 
-// export const store = configureStore({
-//   reducer: {
-//     // counter: counterReducer,
-//   },
-// });
+ export const store = configureStore({
+  reducer: {
+    // counter: counterReducer,
+ },
+});
 
 
 // const reduxDevtools = window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()

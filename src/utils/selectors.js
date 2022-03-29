@@ -1,2 +1,8 @@
-// ce selector est utilisé avec le hook useSeletor
-// export const selectTheme = (state) => state.theme
+/**
+ * Selector used as argument for ToggleTest's useSelector
+ * @param {*} state 
+ * @returns 
+ */
+export const isToggleOn = (state) => {
+    return state.toggle === "true"
+}
