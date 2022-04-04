@@ -39,6 +39,6 @@ const userSlice = createSlice({
 // destructuring slice to recover the reducers and the actions
 const {actions, reducer} = userSlice
 // export each action individually
-const {userLogin, userLogout} = actions
+export const {handleUserProfile} = actions
 // reducer is the default export, not the slice
 export default reducer
