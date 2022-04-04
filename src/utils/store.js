@@ -1,8 +1,15 @@
 import { configureStore } from '@reduxjs/toolkit';
+import authentificationReducer from '../features/auth'
+import userReducer from '../features/user'
 
+/**
+ * Encapsulates store creation logic and automatically connects to Devtools
+ * @param object with a reducer property which automatically uses combineReducer
+ */
  export const store = configureStore({
   reducer: {
-    // counter: counterReducer,
+    authentification: authentificationReducer,
+    user: userReducer
  },
 });
 
