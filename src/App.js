@@ -3,14 +3,17 @@ import './App.css';
 import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
 import SignIn from "./pages/SignIn/SignIn";
-import User from "./pages/User/User";
+import Dashboard from "./pages/Dashboard/Dashboard";
 import Home from './pages/Home/Home';
 import { Routes, Route } from "react-router-dom";
-import { postToken } from "./features/apiRequest";
+import { postToken, postLogin } from "./utils/apiRequest";
 import { useDispatch } from "react-redux";
-import handleUserProfile from "../src/features/user"
-import userAuthentification from "../src/features/auth"
+import {handleUserProfile} from "./features/slices/user"
+import {userLogin} from "./features/slices/auth"
 import PrivateRoute from "./pages/PrivateRoute/PrivateRoute"
+import HomeOrDashboardRoute from "./pages/PrivateRoute/HomeOrDashboardRoute"
+import { useLogged } from "./utils/hooks/customHooks";
+import User from "./pages/User/User"
 
 
 function App() {
@@ -19,7 +22,7 @@ function App() {
   const dispatch = useDispatch();
 
   /**
-   * Get token from localStorage
+   * Post token at eac
    */
   useEffect(() => {
     const token = localStorage.getItem("token")
@@ -27,22 +30,25 @@ function App() {
       postToken(token)
         .then(async (res) => {
           dispatch(handleUserProfile(res.data.body));
-          dispatch(userAuthentification(token));
+          dispatch(userLogin(token));
         })
         .catch((error) => {
-          alert(error);
+          console.log(error);
         });
     }
   }, []);
+
+  const logged = useLogged();
 
 
   return (
     <div className="App">
       <Header />
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<HomeOrDashboardRoute component={Home} />} />
         <Route path="sign-in" element={<SignIn />} />
-        <Route path="user" element={<PrivateRoute component={User} />} />
+        <Route path="/user" element={<PrivateRoute component={User} />} />
+        <Route path="/dashboard" element={<PrivateRoute component={Dashboard} />} />
         {/* <Route path="*" element={<HttpError />} /> */}
       </Routes>
       <Footer />

@@ -1,27 +1,32 @@
 import { useSelector } from "react-redux";
 
-// Check if user logged
+/**
+ * heck if user logged
+ * @returns 
+ */
 function useLogged() {
-  const logged = useSelector((state) => state?.login?.isLogged);
+   // Get state 'authentification' from auth.js 
+  const logged = useSelector((state) => state.authentification.isAuthentified);
   return logged;
+} 
+
+  /**
+   * 
+   * @returns Return user token
+   */
+ function useToken() {
+   // Get state 'user'
+   const token = useSelector((state) => state.login.token);
+   return token;
 }
 
-// Return user's token
-function useToken() {
-  const token = useSelector((state) => state.login.token);
-  return token;
+/**
+ * 
+ * @returns Get user data
+ */
+function useUserData() {
+  const data = useSelector((state) => state.user);
+  return data;
 }
 
-// Return user's first name
-function useFirstName() {
-  const firstName = useSelector((state) => state.profile.firstName);
-  return firstName;
-}
-
-// Return user's last name
-function useLastName() {
-  const lastName = useSelector((state) => state.profile.lastName);
-  return lastName;
-}
-
-export { useLogged, useToken, useFirstName, useLastName };
+export { useLogged, useToken, useUserData };
