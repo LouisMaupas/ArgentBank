@@ -9,7 +9,7 @@ const url = 'http://localhost:3001/api/v1'
  */
 const postLogin = async(userEmail,userPassword) => {
     return axios({
-        method: 'post',
+        method: 'POST',
         url: url + "/user/login", 
         data: {
             email: userEmail,
@@ -18,6 +18,8 @@ const postLogin = async(userEmail,userPassword) => {
     })
 }
 
+// TODO Pouvoir faire requete PUT / CHECK SI BON URL + SI BESOIN DE l'ID dans l'url ...
+
 /**
  * Post token to get token
  * @param {string} token 
@@ -25,7 +27,7 @@ const postLogin = async(userEmail,userPassword) => {
  */
 const postToken = async(token) => {
     return axios({
-        method: 'post',
+        method: 'POST',
         url: url + "/user/profile",
         data: {
         },
@@ -40,16 +42,14 @@ const postToken = async(token) => {
  * Update user's profile
  * @param {string} token 
  * @param {string} firstName 
- * @param {string} lastName 
  * @returns 
  */
-const putEditProfil = async(token, firstName, lastName) => {
+const putEditProfil = async(token, firstName) => {
     return axios({
-        method: 'put',
+        method: 'PATCH',
         url: url + "/user/profile", 
         data: {
             firstName: firstName,
-            lastName: lastName
         },
         headers: {
             Authorization: "Bearer " + token, accept: "application/json"
