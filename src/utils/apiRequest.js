@@ -42,17 +42,20 @@ const postToken = async(token) => {
  * Update user's profile
  * @param {string} token 
  * @param {string} firstName 
+ * @param {string} lastName 
+ * @param {string} email 
+ * @param {string} password 
  * @returns 
  */
-const putEditProfil = async(token, firstName) => {
+const putEditProfil = async(token, firstName, lastName, email, password) => {
     return axios({
-        method: 'PATCH',
+        method: 'PUT',
         url: url + "/user/profile", 
         data: {
             firstName: firstName,
         },
         headers: {
-            Authorization: "Bearer " + token, accept: "application/json"
+            Authorization: "Bearer " + token.payload, accept: "application/json"
         }
     })
 }

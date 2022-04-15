@@ -6,9 +6,8 @@ import { putEditProfil } from "../../utils/apiRequest";
 
 export default function User() {
   const dispatch = useDispatch(),
-    userToken = useToken(),
-    // useSelector((state) => state.user.firstName)
-    userFirstName = useFirstName();
+    userToken = useToken();
+  let newFirstName, newLastName, newEmail, newPassword;
 
   /**
    * Update user data
@@ -16,13 +15,34 @@ export default function User() {
    */
   const handleSubmit = (e) => {
     e.preventDefault();
-    putEditProfil(userToken, "NouveauNom")
-      .then(async (response) => {
-        dispatch(handleUserProfile(response.data.body));
+    putEditProfil(userToken, newFirstName, newLastName, newEmail, newPassword)
+      .then(async (res) => {
+        dispatch(handleUserProfile(res.data.body));
       })
-      .catch((error) => {
-        console.log(error);
+      .catch((err) => {
+        console.log(err);
       });
+  };
+
+  /**
+   * On change update state with input data
+   */
+  const handleChange = (ev) => {
+    console.log(ev.target.name);
+    switch (ev.target.name) {
+      case "firstName":
+        newFirstName = ev.target.value;
+        break;
+      case "lastName":
+        newLastName = ev.target.value;
+        break;
+      case "email":
+        newEmail = ev.target.value;
+        break;
+      case "password":
+        newPassword = ev.target.value;
+        break;
+    }
   };
 
   return (
@@ -30,7 +50,19 @@ export default function User() {
       <form onSubmit={handleSubmit} className="d-flex flex-column">
         <label>
           Prénom :
-          <input type="text" name="firstName" />
+          <input type="text" name="firstName" onChange={handleChange} />
+        </label>
+        <label>
+          Nom :
+          <input type="text" name="lastName" onChange={handleChange} />
+        </label>
+        <label>
+          Email :
+          <input type="email" name="email" onChange={handleChange} />
+        </label>
+        <label>
+          Password :
+          <input type="password" name="password" onChange={handleChange} />
         </label>
         <input type="submit" value="Envoyer" />
       </form>
