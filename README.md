@@ -1,4 +1,53 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app), using the [Redux](https://redux.js.org/) and [Redux Toolkit](https://redux-toolkit.js.org/) template.
+This project is part of my openclassrooms training.
+[Project 13](https://openclassrooms.com/fr/paths/314/projects/813/assignment), using the [Redux](https://redux.js.org/) and [Redux Toolkit](https://redux-toolkit.js.org/).
+
+## Project's goal
+
+Phase 1: User Authentication - Creation of a web application allowing customers to log in and manage their accounts and profile.
+Phase 2: Transactions - Specify the API endpoints needed for a possible second mission after the first is completed.
+
+## Features
+
+State manager
+Authentication and interactions with an API
+
+### Phase 1
+
+Use Redux to manage the state of the entire application.
+What the app should do (see details for each on our GitHub Issues templates):
+User can visit homepage
+User can login to the system
+User can log out of the system
+User can only see their own profile information after successfully logging in
+The user can modify the profile and keep the data in the database.
+
+### Phase 2
+
+Provide a document describing the following APIs for transactions, following Swagger's guidelines:
+Anticipate the functionality for transactions which must be able to allow users:
+view all their transactions for the current month;
+view transaction details in another view;
+add, modify or delete transaction information.
+
+Among the key elements to specify for each endpoint of the API will be:
+
+The HTTP method (e.g. GET, POST, etc.)
+The route (e.g.: /store/inventory)
+The description of what the endpoint is (e.g. Return of pet inventory)
+Possible parameters to account for different scenarios (e.g. itemId (optional) = ID of the specific item to request from the inventory database).
+The different responses with the corresponding response codes that make sense for this endpoint (ex: 404: unknown article error response).
+
+## Tools
+
+Create React App
+Redux Toolkit
+Axios
+React Query
+Functional Components
+React Router V6
+Swagger
+Yaml
+ESLint & Prettier
 
 ## Available Scripts
 
@@ -39,6 +88,6 @@ You don’t have to ever use `eject`. The curated feature set is suitable for sm
 
 ## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+[Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+React, check out the [React documentation](https://reactjs.org/).
