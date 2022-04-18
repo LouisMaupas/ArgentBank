@@ -18,8 +18,6 @@ const postLogin = async(userEmail,userPassword) => {
     })
 }
 
-// TODO Pouvoir faire requete PUT / CHECK SI BON URL + SI BESOIN DE l'ID dans l'url ...
-
 /**
  * Post token to get token
  * @param {string} token 

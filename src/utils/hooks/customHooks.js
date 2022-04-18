@@ -1,7 +1,7 @@
 import { useSelector } from "react-redux";
 
 /**
- * heck if user logged
+ * Check if user logged
  * @returns 
  */
 function useLogged() {

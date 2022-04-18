@@ -1,5 +1,5 @@
 This project is part of my openclassrooms training.
-[Project 13](https://openclassrooms.com/fr/paths/314/projects/813/assignment), using the [Redux](https://redux.js.org/) and [Redux Toolkit](https://redux-toolkit.js.org/).
+[Project 13](https://openclassrooms.com/fr/paths/314/projects/813/assignment), using [Redux](https://redux.js.org/) and [Redux Toolkit](https://redux-toolkit.js.org/).
 
 ## Project's goal
 
