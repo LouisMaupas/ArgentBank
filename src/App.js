@@ -12,7 +12,6 @@ import { useDispatch } from "react-redux";
 import {handleUserProfile} from "./features/slices/user"
 import {userLogin} from "./features/slices/auth"
 import PrivateRoute from "./pages/PrivateRoute/PrivateRoute"
-import HomeOrDashboardRoute from "./pages/PrivateRoute/HomeOrDashboardRoute"
 import { useLogged } from "./utils/hooks/customHooks";
 import User from "./pages/User/User"
 
