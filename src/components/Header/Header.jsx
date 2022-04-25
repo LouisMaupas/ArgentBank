@@ -4,6 +4,10 @@ import { useLogged, useUserData } from "../../utils/hooks/customHooks";
 import { userLogout } from "../../features/slices/auth";
 import { useDispatch } from "react-redux";
 import { Navigate } from "react-router-dom";
+import style from "./Header.css";
+import loginIcon from "../../img/login.svg";
+import logoutIcon from "../../img/logout.svg";
+import profileIcon from "../../img/profile.svg";
 
 const Header = () => {
   const logged = useLogged(),
@@ -34,20 +38,25 @@ const Header = () => {
         <div>
           {logged ? (
             <>
-              <Link className="main-nav-item" to="/user">
-                <i className="fa fa-user-circle"></i>
-                {userData.firstName}
-              </Link>
-              <div className="main-nav-item" onClick={signOut}>
-                <i className="fa fa-user-circle"></i>
-                Sign Out
+              <div className="header__buttons">
+                <Link className="main-nav-item d-flex" to="/user">
+                  <i className="fa fa-user-circle"></i>
+                  <img className="header-buttons__icon" src={profileIcon}></img>
+                  <div>{userData.firstName}</div>
+                </Link>
+                <div className="main-nav-item d-flex" onClick={signOut}>
+                  <i className="fa fa-user-circle"></i>
+                  <img className="header-buttons__icon" src={logoutIcon}></img>
+                  <div>Sign Out</div>
+                </div>
               </div>
             </>
           ) : (
             <>
-              <Link className="main-nav-item" to="/sign-in">
+              <Link className="main-nav-item d-flex" to="/sign-in">
                 <i className="fa fa-user-circle"></i>
-                Sign In
+                <img className="header-buttons__icon" src={logoutIcon}></img>
+                <div>Sign In</div>
               </Link>
             </>
           )}
