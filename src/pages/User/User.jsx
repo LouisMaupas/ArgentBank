@@ -4,6 +4,7 @@ import { useToken, useUserData } from "../../utils/hooks/customHooks";
 import { handleUserProfile } from "../../features/slices/user";
 import { putEditProfil } from "../../utils/apiRequest";
 import style from "./User.css";
+import { Link } from "react-router-dom";
 
 export default function User() {
   const dispatch = useDispatch(),
@@ -47,33 +48,41 @@ export default function User() {
         onSubmit={handleSubmit}
         className="user-form main--user main--little"
       >
-        <div>Welcome Back</div>
+        <div className="user-title">Welcome Back</div>
         <div className="user-form__inputs">
-          <label className="my-2">
+          <label className="my-2 user-form__btn--left">
             <input
               type="text"
               name="firstName"
               onChange={handleChange}
               placeholder={userData.firstName}
+              className={"user-form__input"}
             />
           </label>
-          <label className="my-2">
+          <label className="my-2 user-form__btn--right">
             <input
               type="text"
               name="lastName"
               onChange={handleChange}
               placeholder={userData.lastName}
+              className={"user-form__input"}
             />
           </label>
         </div>
         <div className="user-form__buttons">
-          <button className="btn my-2" type="submit" value="Envoyer">
+          <button
+            className="my-2 user-form__btn user-form__btn--left"
+            type="submit"
+            value="Envoyer"
+          >
             Save
           </button>
-          <button className="btn my-2">Cancel</button>
+          <button className="my-2 user-form__btn user-form__btn--right">
+            Cancel
+          </button>
         </div>
       </form>
-      <div>
+      <div className="user-form__transactions">
         <section className="account">
           <div className="account-content-wrapper">
             <h3 className="account-title">Argent Bank Savings (x6712)</h3>
@@ -81,7 +90,9 @@ export default function User() {
             <p className="account-amount-description">Available Balance</p>
           </div>
           <div className="account-content-wrapper cta">
-            <button className="transaction-button">View transactions</button>
+            <Link to="/dashboard" className="transaction-button">
+              View transactions
+            </Link>
           </div>
         </section>
         <section className="account">
@@ -91,7 +102,9 @@ export default function User() {
             <p className="account-amount-description">Current Balance</p>
           </div>
           <div className="account-content-wrapper cta">
-            <button className="transaction-button">View transactions</button>
+            <Link to="/dashboard" className="transaction-button">
+              View transactions
+            </Link>
           </div>
         </section>
       </div>
