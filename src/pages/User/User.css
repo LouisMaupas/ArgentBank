@@ -5,6 +5,43 @@
 .user-form {
     display: flex;
     flex-direction: column;
+    padding-top: 1rem;
+}
+
+.user-form__buttons > button {
+    border-color: rgb(76, 23, 190);
+    color: rgb(76, 23, 190);
+}
+
+.user-form__btn--left {
+    margin-right: 0.5rem;
+}
+
+.user-form__btn--right {
+    margin-left: 0.5rem;
+}
+
+.user-form__btn {
+    padding: 0.25rem 1rem;
+    border-radius: 5px;
+}
+
+.user-form__input {
+    padding: 0.33rem 1rem;
+    border-radius: 5px;
+    border: none;
+}
+
+.user-form__transactions {
+    height: 75vh;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.user-title {
+    font-weight: bold;
+    margin-bottom: 1rem;
 }
 
 .btn {
@@ -18,8 +55,4 @@
 .my-2 {
     margin-top: 0.5rem;
     margin-bottom: 0.5rem;
-}
-
-.main--user {
-    
 }
