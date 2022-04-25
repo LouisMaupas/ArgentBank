@@ -22,6 +22,7 @@ export default function User() {
     putEditProfil(userToken, newFirstName, newLastName)
       .then(async (res) => {
         dispatch(handleUserProfile(res.data.body));
+        document.getElementById("user-res").innerHTML = res.data.message;
       })
       .catch((err) => {
         console.log(err);
@@ -48,7 +49,11 @@ export default function User() {
         onSubmit={handleSubmit}
         className="user-form main--user main--little"
       >
-        <div className="user-title">Welcome Back</div>
+        <div className="user-title">
+          Welcome Back
+          <br />
+          <span id="user-res"></span>
+        </div>
         <div className="user-form__inputs">
           <label className="my-2 user-form__btn--left">
             <input

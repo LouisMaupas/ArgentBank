@@ -58,6 +58,7 @@ body {
 }
 
 .main-nav-item:hover {
+  cursor: pointer;
   text-decoration: underline;
 }
 
