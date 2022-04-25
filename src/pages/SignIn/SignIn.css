@@ -1,0 +1,7 @@
+.main--sign-in {
+    padding-top: 15px;
+}
+
+#error-message {
+    color: red;
+}

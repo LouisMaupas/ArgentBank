@@ -6,6 +6,7 @@ import { postLogin, postToken } from "../../utils/apiRequest";
 import { userLogin } from "../../features/slices/auth";
 import { handleUserProfile } from "../../features/slices/user";
 import { useLogged } from "../../utils/hooks/customHooks";
+import style from "./SignIn.css";
 
 /**
  *
@@ -47,17 +48,30 @@ export default function SignIn() {
           navigate("/http-error");
         }
       })
-      .catch((error) => {
-        console.log(error);
-        setError(error);
+      .catch(function (error) {
+        if (error.response) {
+          // The request was made and the server responded with a status code
+          document.getElementById("error-message").innerHTML =
+            error.response.data.message;
+        } else if (error.request) {
+          // The request was made but no response was received
+          // `error.request` is an instance of XMLHttpRequest in the browser and an instance of
+          // http.ClientRequest in node.js
+          console.log(error.request);
+        } else {
+          // Something happened in setting up the request that triggered an Error
+          console.log("Error", error.message);
+        }
+        console.log(error.config);
       });
   };
 
   return (
-    <main className="main bg-dark">
+    <main className="main main--little main--sign-in bg-dark">
       <section className="sign-in-content">
         <i className="fa fa-user-circle sign-in-icon"></i>
         <h1>Sign In</h1>
+        <span id="error-message"></span>
         <form onSubmit={handleSubmit}>
           <div className="input-wrapper">
             <label htmlFor="username">Username</label>
