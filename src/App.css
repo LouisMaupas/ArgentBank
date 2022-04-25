@@ -10,7 +10,7 @@ body {
   margin: 0;
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
+  /* min-height: 100vh; */
 }
 
 .main {
@@ -287,5 +287,11 @@ body {
 
   .transaction-button {
     width: 200px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .main--little {
+    height: 100%;
   }
 }
