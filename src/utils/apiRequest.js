@@ -45,12 +45,13 @@ const postToken = async(token) => {
  * @param {string} password 
  * @returns 
  */
-const putEditProfil = async(token, firstName, lastName, email, password) => {
+const putEditProfil = async(token, firstName, lastName) => {
     return axios({
         method: 'PUT',
         url: url + "/user/profile", 
         data: {
             firstName: firstName,
+            lastName: lastName
         },
         headers: {
             Authorization: "Bearer " + token.payload, accept: "application/json"
