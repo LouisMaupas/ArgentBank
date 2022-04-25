@@ -5,6 +5,7 @@ import Footer from './components/Footer/Footer';
 import SignIn from "./pages/SignIn/SignIn";
 import Dashboard from "./pages/Dashboard/Dashboard";
 import Home from './pages/Home/Home';
+import HttpError from './pages/HttpError/HttpError';
 import { Routes, Route } from "react-router-dom";
 import { postToken, postLogin } from "./utils/apiRequest";
 import { useDispatch } from "react-redux";
@@ -45,11 +46,11 @@ function App() {
     <div className="App">
       <Header />
       <Routes>
-        <Route path="/" element={<HomeOrDashboardRoute component={Home} />} />
+        <Route path="/" element={<Home />} />
         <Route path="sign-in" element={<SignIn />} />
         <Route path="/user" element={<PrivateRoute component={User} />} />
         <Route path="/dashboard" element={<PrivateRoute component={Dashboard} />} />
-        {/* <Route path="*" element={<HttpError />} /> */}
+        <Route path="*" element={<HttpError />} />
       </Routes>
       <Footer />
     </div>
