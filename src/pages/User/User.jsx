@@ -82,7 +82,10 @@ export default function User() {
           >
             Save
           </button>
-          <button className="my-2 user-form__btn user-form__btn--right">
+          <button
+            className="my-2 user-form__btn user-form__btn--right"
+            type="reset"
+          >
             Cancel
           </button>
         </div>
