@@ -6,23 +6,19 @@ import { store } from './utils/store';
 import { Provider } from 'react-redux';
 import * as serviceWorker from './serviceWorker';
 import { BrowserRouter } from "react-router-dom";
-import {QueryClient, QueryClientProvider} from 'react-query';
 
 /**
  * Contains all the data of the application, can be used to interact with a cache
  */
-const queryClient = new QueryClient();
 
 
 ReactDOM.render(
   <React.StrictMode>
-    <QueryClientProvider client={queryClient}>
     <Provider store={store}>
       <BrowserRouter>
         <App /> 
       </BrowserRouter>
     </Provider>
-    </QueryClientProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );
