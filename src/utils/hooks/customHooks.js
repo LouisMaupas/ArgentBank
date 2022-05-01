@@ -11,7 +11,7 @@ function useLogged() {
 } 
 
   /**
-   * 
+   * Return user token
    * @returns Return user token
    */
  function useToken() {
@@ -21,7 +21,7 @@ function useLogged() {
 }
 
 /**
- * 
+ * Return all user data
  * @returns Get user data
  */
 function useUserData() {
@@ -29,14 +29,4 @@ function useUserData() {
   return data;
 }
 
-/**
- * Return user first name
- * @returns 
- */
-function useFirstName() {
-  const firstName = useSelector((state) => state.user.firstName);
-
-  return firstName;
-}
-
-export { useLogged, useToken, useUserData, useFirstName };
+export { useLogged, useToken, useUserData };
