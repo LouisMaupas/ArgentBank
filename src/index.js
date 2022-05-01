@@ -17,7 +17,6 @@ const queryClient = new QueryClient();
 ReactDOM.render(
   <React.StrictMode>
     <QueryClientProvider client={queryClient}>
-    {/* <QueryClientProvider> */}
     <Provider store={store}>
       <BrowserRouter>
         <App /> 
