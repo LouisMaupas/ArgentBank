@@ -7,11 +7,6 @@ import { Provider } from 'react-redux';
 import * as serviceWorker from './serviceWorker';
 import { BrowserRouter } from "react-router-dom";
 
-/**
- * Contains all the data of the application, can be used to interact with a cache
- */
-
-
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
