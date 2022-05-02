@@ -1,7 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = { isAuthentified: false, token: ""}
-
 /**
  * Get an intial state, an object of reducer functions and a slcie name,
  * and automatically generates actio creators (createAction) and action types that correspond to the reducers (createReducer) and state

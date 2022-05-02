@@ -12,34 +12,35 @@ import { useDispatch } from "react-redux";
 import {handleUserProfile} from "./features/slices/user"
 import {userLogin} from "./features/slices/auth"
 import PrivateRoute from "./pages/PrivateRoute/PrivateRoute"
-import { useLogged } from "./utils/hooks/customHooks";
 import User from "./pages/User/User"
 
 
 function App() {
 
-
+  /**
+   * A store method : send actions to update state 
+   */
   const dispatch = useDispatch();
 
   /**
-   * Post token at eac
+   * Manage auth, if token get user data
    */
   useEffect(() => {
     const token = localStorage.getItem("token")
     if (token) {
       postToken(token)
         .then(async (res) => {
+          // update state with user data
           dispatch(handleUserProfile(res.data.body));
+          // update state with token and say user is connected
           dispatch(userLogin(token));
         })
         .catch((error) => {
           console.log(error);
         });
     }
+    // effect doesn’t depend on any values from props or state, so it never needs to re-run
   }, []);
-
-  const logged = useLogged();
-
 
   return (
     <div className="App">

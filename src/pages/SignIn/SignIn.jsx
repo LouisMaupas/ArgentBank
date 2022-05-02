@@ -1,47 +1,46 @@
-import { Link, useNavigate, Navigate } from "react-router-dom";
-import Button from "../../components/Button/Button";
-import { React, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { React } from "react";
 import { useDispatch } from "react-redux";
 import { postLogin, postToken } from "../../utils/apiRequest";
 import { userLogin } from "../../features/slices/auth";
 import { handleUserProfile } from "../../features/slices/user";
 import { useLogged } from "../../utils/hooks/customHooks";
-import style from "./SignIn.css";
+import "./SignIn.css";
 
 /**
  *
  * @returns
  */
 export default function SignIn() {
-  /**
-   * Declare variables
-   */
+  /** Declare variables */
   const dispatch = useDispatch(),
+    // https://reactrouter.com/docs/en/v6/api#usenavigate
     navigate = useNavigate(),
-    logged = useLogged(),
-    [userName, setUserName] = useState(""),
-    [userPassword, setUserPassword] = useState(""),
-    [error, setError] = useState("");
+    // custom hook check if user isLogged
+    logged = useLogged();
 
   /**
    * At user form submit, do a http post login with data then get and  token and stock token
+   * Manage auth, if token get user data
    * @param {Event} e
    */
   const handleSubmit = (e) => {
     e.preventDefault();
+    // Ajax Request
     postLogin(e.target[0].value, e.target[1].value)
       .then(async (res) => {
         const token = res?.data?.body?.token;
         if (token) {
           postToken(token)
             .then(async (response) => {
+              // update state with user data
               dispatch(handleUserProfile(response.data.body));
+              // update state with token and say user is connected
               dispatch(userLogin(token));
               localStorage.setItem("token", token);
               navigate("/dashboard");
             })
             .catch((error) => {
-              setError(error);
               console.log(error);
             });
         } else {

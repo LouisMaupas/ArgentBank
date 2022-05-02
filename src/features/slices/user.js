@@ -12,7 +12,7 @@ const initialStateValue = {
     __v: 0    
 }
 /**
- * Get an intial state, an object of reducer functions and a slcie name,
+ * Get an intial state, an object of reducer functions and a slice name,
  * and automatically generates action creators (createAction) and action types that correspond to the reducers (createReducer) and state
  */
 const userSlice = createSlice({

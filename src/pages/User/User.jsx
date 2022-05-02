@@ -21,6 +21,7 @@ export default function User() {
     e.preventDefault();
     putEditProfil(userToken, newFirstName, newLastName)
       .then(async (res) => {
+        // update state with res
         dispatch(handleUserProfile(res.data.body));
         document.getElementById("user-res").innerHTML = res.data.message;
       })
