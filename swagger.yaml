@@ -34,6 +34,10 @@ paths:
           schema:
             $ref: "#/definitions/Transaction"
       responses:
+        "201":
+          description: "Success, transactions have been created"
+        "404":
+          description: "Ressource Not found"
         "500":
           description: "Internal Server Error"
       security:
