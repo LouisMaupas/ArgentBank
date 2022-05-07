@@ -3,7 +3,7 @@ import authentificationReducer from '../features/slices/auth'
 import userReducer from '../features/slices/user'
 
 /**
- * Encapsulates store creation logic and automatically connects to Devtools
+ * Encapsulates store creation logic
  * @param object with a reducer property which automatically uses combineReducer
  */
  export const store = configureStore({

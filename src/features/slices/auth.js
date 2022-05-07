@@ -1,9 +1,10 @@
 import { createSlice } from "@reduxjs/toolkit";
 
+// 
 const initialState = { isAuthentified: false, token: ""}
 /**
  * Get an intial state, an object of reducer functions and a slcie name,
- * and automatically generates actio creators (createAction) and action types that correspond to the reducers (createReducer) and state
+ * and automatically generates action creators (createAction) and action types that correspond to the reducers (createReducer) and state
  */
 const authentificationSlice = createSlice({
     name: "authentification ",
@@ -12,7 +13,7 @@ const authentificationSlice = createSlice({
     // also defined creator actions
     reducers: {
       /**
-       * 
+       * Update state with login informations
        * @param {*} state 
        * @param {*} action 
        */
@@ -20,6 +21,10 @@ const authentificationSlice = createSlice({
             state.isAuthentified = true
             state.token = action
         },
+        /**
+         * Clear state of login informations
+         * @param {*} state 
+         */
         userLogout: (state) => {
             state.isAuthentified = false
             state.token = ""

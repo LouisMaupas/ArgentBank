@@ -1,7 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
-/**
- * Initial state
- */
+
+// Initial state fill with mongoDB key
 const initialStateValue = { 
     createdAt: "",    
     email: "",
@@ -19,6 +18,11 @@ const userSlice = createSlice({
     name: "user",
     initialState: initialStateValue,
     reducers: {
+        /**
+         * Update state with user informations
+         * @param {*} state 
+         * @param {*} action 
+         */
         handleUserProfile: (state, action) => {
             const userData = action.payload;
             state.createdAt = userData.createdAt

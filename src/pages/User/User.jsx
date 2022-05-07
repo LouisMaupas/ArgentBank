@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux";
 import { useToken, useUserData } from "../../utils/hooks/customHooks";
 import { handleUserProfile } from "../../features/slices/user";
 import { putEditProfil } from "../../utils/apiRequest";
-import style from "./User.css";
+import "./User.css";
 import { Link } from "react-router-dom";
 
 export default function User() {

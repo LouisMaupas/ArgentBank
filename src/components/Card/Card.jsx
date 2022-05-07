@@ -1,3 +1,8 @@
+/**
+ * Card component
+ * @param {*} probs
+ * @returns
+ */
 const Card = ({ img, title, content }) => {
   return (
     <div className="feature-item">
